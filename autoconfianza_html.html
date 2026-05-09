@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AutoConfianza — Agencia de Marketing Digital para Concesionarias</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Arial,sans-serif;color:#1a1a1a;background:#f5f5f2}
+  a{text-decoration:none;color:inherit}
+
+  nav{background:#fff;border-bottom:1px solid #e5e5e5;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:64px;position:sticky;top:0;z-index:100}
+  .logo{display:flex;align-items:center;gap:8px;font-size:20px;font-weight:700;color:#185FA5}
+  .logo span{color:#1a1a1a;font-weight:400;font-size:13px;margin-left:4px;border-left:1px solid #ddd;padding-left:10px}
+  .nav-links{display:flex;gap:1.5rem;list-style:none}
+  .nav-links a{font-size:14px;color:#555}
+  .nav-links a:hover{color:#185FA5}
+  .btn-nav{background:#185FA5;color:#fff;border:none;padding:9px 20px;border-radius:8px;font-size:14px;cursor:pointer;font-weight:500}
+
+  .hero{background:linear-gradient(135deg,#042C53 0%,#185FA5 100%);color:#fff;padding:5.5rem 2rem;text-align:center}
+  .badge-hero{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.3);padding:6px 18px;border-radius:20px;font-size:13px;margin-bottom:1.5rem}
+  .hero h1{font-size:2.6rem;font-weight:700;margin-bottom:1rem;line-height:1.2}
+  .hero p{font-size:1.1rem;opacity:0.88;max-width:640px;margin:0 auto 2rem;line-height:1.7}
+  .hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .btn-white{background:#fff;color:#185FA5;border:none;padding:13px 30px;border-radius:8px;font-size:15px;cursor:pointer;font-weight:600}
+  .btn-outline-white{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,0.6);padding:13px 30px;border-radius:8px;font-size:15px;cursor:pointer}
+
+  .stats-bar{background:#fff;border-bottom:1px solid #e5e5e5;padding:1.8rem 2rem;display:flex;justify-content:center;gap:3.5rem;flex-wrap:wrap}
+  .stat{text-align:center}
+  .stat-num{font-size:2rem;font-weight:700;color:#185FA5}
+  .stat-label{font-size:13px;color:#777;margin-top:2px}
+
+  .section{padding:4rem 2rem;max-width:1100px;margin:0 auto}
+  .section-label{font-size:12px;color:#185FA5;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
+  .section-title{font-size:1.8rem;font-weight:700;margin-bottom:8px}
+  .section-sub{color:#666;font-size:15px;margin-bottom:2.5rem;line-height:1.6}
+  .bg-gray{background:#f5f5f2}
+  .bg-white{background:#fff}
+
+  /* SERVICIOS */
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+  .serv-card{background:#fff;border:1px solid #e5e5e5;border-radius:14px;padding:1.5rem;transition:box-shadow .2s}
+  .serv-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.07)}
+  .serv-icon{width:48px;height:48px;background:#E6F1FB;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1rem}
+  .serv-icon i{font-size:24px;color:#185FA5}
+  .serv-card h3{font-size:15px;font-weight:600;margin-bottom:6px}
+  .serv-card p{font-size:13px;color:#666;line-height:1.6}
+
+  /* CÓMO TRABAJAMOS */
+  .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}
+  .step{text-align:center;padding:1.5rem 1rem;background:#fff;border:1px solid #e5e5e5;border-radius:12px}
+  .step-num{width:42px;height:42px;background:#185FA5;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;margin:0 auto 1rem}
+  .step h3{font-size:15px;font-weight:600;margin-bottom:6px}
+  .step p{font-size:13px;color:#666;line-height:1.6}
+
+  /* CLIENTES / RESULTADOS */
+  .results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .result-card{background:#fff;border:1px solid #e5e5e5;border-radius:14px;padding:1.5rem}
+  .result-num{font-size:2rem;font-weight:700;color:#185FA5;margin-bottom:4px}
+  .result-label{font-size:14px;font-weight:600;margin-bottom:6px}
+  .result-desc{font-size:13px;color:#666;line-height:1.5}
+
+  /* TESTIMONIOS */
+  .test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+  .test-card{background:#fff;border:1px solid #e5e5e5;border-radius:12px;padding:1.3rem}
+  .stars{color:#EF9F27;font-size:15px;margin-bottom:8px}
+  .test-card p{font-size:14px;color:#555;line-height:1.6;margin-bottom:12px}
+  .t-author{display:flex;align-items:center;gap:10px}
+  .avatar{width:38px;height:38px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#185FA5}
+  .t-name{font-size:13px;font-weight:600}
+  .t-sub{font-size:12px;color:#888}
+
+  /* PLANES */
+  .planes-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
+  .plan-card{background:#fff;border:1px solid #e5e5e5;border-radius:14px;padding:1.75rem;position:relative}
+  .plan-card.featured{border:2px solid #185FA5}
+  .plan-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#185FA5;color:#fff;font-size:11px;font-weight:600;padding:4px 14px;border-radius:20px;white-space:nowrap}
+  .plan-name{font-size:16px;font-weight:700;margin-bottom:4px}
+  .plan-price{font-size:1.8rem;font-weight:700;color:#185FA5;margin-bottom:4px}
+  .plan-price span{font-size:14px;font-weight:400;color:#888}
+  .plan-desc{font-size:13px;color:#666;margin-bottom:1rem;line-height:1.5}
+  .plan-features{list-style:none;margin-bottom:1.5rem}
+  .plan-features li{font-size:13px;color:#444;padding:5px 0;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:8px}
+  .plan-features li i{color:#185FA5;font-size:14px}
+  .btn-plan{width:100%;background:#185FA5;color:#fff;border:none;padding:10px;border-radius:8px;font-size:14px;cursor:pointer;font-weight:500}
+  .btn-plan.outline{background:transparent;color:#185FA5;border:1.5px solid #185FA5}
+
+  .cta-section{background:linear-gradient(135deg,#042C53,#185FA5);color:#fff;padding:4.5rem 2rem;text-align:center}
+  .cta-section h2{font-size:2rem;font-weight:700;margin-bottom:1rem}
+  .cta-section p{opacity:0.88;font-size:15px;max-width:520px;margin:0 auto 2rem}
+  .cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+  footer{background:#fff;border-top:1px solid #e5e5e5;padding:2.5rem 2rem;text-align:center}
+  .footer-links{display:flex;justify-content:center;gap:1.5rem;margin-bottom:1rem;flex-wrap:wrap}
+  .footer-links a{color:#666;font-size:13px}
+  .footer-links a:hover{color:#185FA5}
+  footer p{font-size:13px;color:#999;margin-top:4px}
+
+  .wapp-btn{position:fixed;bottom:24px;right:24px;background:#25D366;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:200;border:none;box-shadow:0 4px 12px rgba(37,211,102,0.4)}
+  .wapp-btn i{font-size:28px}
+
+  @media(max-width:700px){
+    .nav-links{display:none}
+    .hero h1{font-size:1.8rem}
+    .stats-bar{gap:1.5rem}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <div class="logo"><i class="ti ti-speakerphone"></i> AutoConfianza <span>Agencia de Marketing Digital</span></div>
+  <ul class="nav-links">
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#">Servicios</a></li>
+    <li><a href="#">Resultados</a></li>
+    <li><a href="#">Planes</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+  <button class="btn-nav">Quiero más ventas</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge-hero"><i class="ti ti-trophy"></i> Especialistas en marketing para concesionarias de autos usados</div>
+  <h1>Haz que tu concesionaria<br>venda más con marketing digital</h1>
+  <p>Somos la única agencia de marketing digital en Chile especializada 100% en concesionarias de autos usados. Convertimos la desconfianza del consumidor en tu mayor ventaja competitiva.</p>
+  <div class="hero-btns">
+    <button class="btn-white"><i class="ti ti-rocket"></i> Ver nuestros servicios</button>
+    <button class="btn-outline-white"><i class="ti ti-brand-whatsapp"></i> Hablar con un estratega</button>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">+60%</div><div class="stat-label">Consumidores desconfían al comprar</div></div>
+  <div class="stat"><div class="stat-num">80%</div><div class="stat-label">Buscan autos usados en internet</div></div>
+  <div class="stat"><div class="stat-num">3:1</div><div class="stat-label">Usados vs nuevos vendidos en Chile</div></div>
+  <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Especialización automotriz usados</div></div>
+</div>
+
+<!-- SERVICIOS -->
+<div class="bg-white" style="padding:4rem 0">
+<div class="section" style="padding:0 2rem">
+  <div class="section-label">Lo que hacemos</div>
+  <div class="section-title">Servicios de marketing digital</div>
+  <div class="section-sub">Todo lo que tu concesionaria necesita para destacar, generar confianza y vender más online</div>
+  <div class="services-grid">
+    <div class="serv-card">
+      <div class="serv-icon"><i class="ti ti-brand-instagram"></i></div>
+      <h3>Gestión de Redes Sociales</h3>
+      <p>Estrategia, contenido y publicación en Instagram, TikTok y Facebook orientados a generar confianza en el comprador de autos usados.</p>
+    </div>
+    <div class="serv-card">
+      <div class="serv-icon"><i class="ti ti-world"></i></div>
+      <h3>Diseño Web y UX</h3>
+      <p>Sitios web modernos con ficha técnica detallada por vehículo, formularios de captación de leads y experiencia de usuario optimizada.</p>
+    </div>
+    <div class="serv-card">
+      <div class="serv-icon"><i class="ti ti-ad"></i></div>
+      <h3>Google Ads y Meta Ads</h3>
+      <p>Campañas de publicidad digital segmentadas hacia compradores de autos usados en la Región Metropolitana y capitales regionales.</p>
+    </div>
+    <div class="serv-card">
+      <div class="serv-icon"><i class="ti ti-chart-line"></i></div>
+      <h3>SEO y Posicionamiento</h3>
+      <p>Posicionamiento orgánico en Google con keywords de intención de compra: "autos usados certificados", "concesionaria confiable Santiago".</p>
+    </div>
+    <div class="serv-card">
+      <div class="serv-icon"><i class="ti ti-video"></i></div>
+      <h3>Producción de Contenido</h3>
+      <p>Fotografía 360°, videos de revisión técnica y reseñas audiovisuales de vehículos para aumentar la confianza del comprador.</p>
+    </div>
+    <div class="serv-card">
+      <div class="serv-icon"><i class="ti ti-star"></i></div>
+      <h3>Reputación Online</h3>
+      <p>Gestión de reseñas en Google My Business y estrategias de fidelización post-venta para construir una marca confiable.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CÓMO TRABAJAMOS -->
+<div class="bg-gray" style="padding:4rem 0">
+<div class="section" style="padding:0 2rem">
+  <div class="section-label">Nuestro proceso</div>
+  <div class="section-title">¿Cómo trabajamos contigo?</div>
+  <div class="section-sub">Un proceso claro, medible y orientado a resultados reales para tu concesionaria</div>
+  <div class="steps-grid">
+    <div class="step"><div class="step-num">1</div><h3>Diagnóstico digital</h3><p>Analizamos el estado actual de tu presencia digital, competidores y oportunidades en tu zona.</p></div>
+    <div class="step"><div class="step-num">2</div><h3>Estrategia personalizada</h3><p>Diseñamos un plan de marketing a medida según el tamaño, ubicación y objetivos de tu concesionaria.</p></div>
+    <div class="step"><div class="step-num">3</div><h3>Ejecución y contenido</h3><p>Implementamos campañas, creamos contenido y gestionamos tus canales digitales mes a mes.</p></div>
+    <div class="step"><div class="step-num">4</div><h3>Reportes y optimización</h3><p>Entregamos reportes mensuales con métricas claras y ajustamos la estrategia según los resultados.</p></div>
+  </div>
+</div>
+</div>
+
+<!-- RESULTADOS -->
+<div class="bg-white" style="padding:4rem 0">
+<div class="section" style="padding:0 2rem">
+  <div class="section-label">Nuestro impacto</div>
+  <div class="section-title">Resultados que generamos</div>
+  <div class="section-sub">Indicadores reales que nuestros clientes logran con AutoConfianza</div>
+  <div class="results-grid">
+    <div class="result-card"><div class="result-num">+3x</div><div class="result-label">Leads digitales mensuales</div><div class="result-desc">Triplicamos la cantidad de consultas online de potenciales compradores para nuestros clientes.</div></div>
+    <div class="result-card"><div class="result-num">85%</div><div class="result-label">Satisfacción de compradores finales</div><div class="result-desc">Las concesionarias que trabajaron con nosotros superan el 85% de satisfacción en encuestas post-venta.</div></div>
+    <div class="result-card"><div class="result-num">+500</div><div class="result-label">Seguidores orgánicos en 3 meses</div><div class="result-desc">Crecimiento real de audiencia en Instagram con contenido especializado en el mercado automotriz.</div></div>
+    <div class="result-card"><div class="result-num">Top 3</div><div class="result-label">Google My Business en su zona</div><div class="result-desc">Posicionamos a nuestros clientes entre los primeros resultados de búsqueda local en Santiago.</div></div>
+  </div>
+</div>
+</div>
+
+<!-- TESTIMONIOS -->
+<div class="bg-gray" style="padding:4rem 0">
+<div class="section" style="padding:0 2rem">
+  <div class="section-label">Lo que dicen nuestros clientes</div>
+  <div class="section-title">Concesionarias que confían en nosotros</div>
+  <div class="section-sub">+20 reseñas verificadas en Google My Business</div>
+  <div class="test-grid">
+    <div class="test-card"><div class="stars">★★★★★</div><p>"Antes publicábamos fotos en Facebook sin estrategia. Con AutoConfianza triplicamos las consultas en 2 meses y el contenido es completamente diferente."</p><div class="t-author"><div class="avatar">MV</div><div><div class="t-name">Mario Vásquez</div><div class="t-sub">Dueño Concesionaria MV Autos · Maipú</div></div></div></div>
+    <div class="test-card"><div class="stars">★★★★★</div><p>"Por fin una agencia que entiende el mercado de usados. Saben exactamente qué le preocupa al comprador y cómo comunicar confianza."</p><div class="t-author"><div class="avatar">LR</div><div><div class="t-name">Lorena Ramírez</div><div class="t-sub">Gerente Comercial · AutoPlus Santiago</div></div></div></div>
+    <div class="test-card"><div class="stars">★★★★★</div><p>"Los reportes mensuales son claros y se nota que les importa el resultado. En 6 meses cerramos 3 clientes más por mes gracias al trabajo digital."</p><div class="t-author"><div class="avatar">CP</div><div><div class="t-name">Carlos Pino</div><div class="t-sub">Propietario · Autos del Sur · Pudahuel</div></div></div></div>
+  </div>
+</div>
+</div>
+
+<!-- PLANES -->
+<div class="bg-white" style="padding:4rem 0">
+<div class="section" style="padding:0 2rem">
+  <div class="section-label">Inversión</div>
+  <div class="section-title">Planes para tu concesionaria</div>
+  <div class="section-sub">Elige el plan que mejor se adapta al tamaño y objetivos de tu negocio</div>
+  <div class="planes-grid">
+    <div class="plan-card">
+      <div class="plan-name">Starter</div>
+      <div class="plan-price">$350.000 <span>/mes</span></div>
+      <div class="plan-desc">Ideal para concesionarias pequeñas que quieren empezar a crecer digitalmente.</div>
+      <ul class="plan-features">
+        <li><i class="ti ti-check"></i> Gestión Instagram (3x/semana)</li>
+        <li><i class="ti ti-check"></i> Diseño de 12 piezas mensuales</li>
+        <li><i class="ti ti-check"></i> Gestión Google My Business</li>
+        <li><i class="ti ti-check"></i> Reporte mensual básico</li>
+      </ul>
+      <button class="btn-plan outline">Elegir Starter</button>
+    </div>
+    <div class="plan-card featured">
+      <div class="plan-badge">Más elegido</div>
+      <div class="plan-name">Profesional</div>
+      <div class="plan-price">$750.000 <span>/mes</span></div>
+      <div class="plan-desc">Para concesionarias que quieren diferenciarse y generar leads digitales consistentes.</div>
+      <ul class="plan-features">
+        <li><i class="ti ti-check"></i> Gestión Instagram + TikTok (5x/semana)</li>
+        <li><i class="ti ti-check"></i> Campaña Meta Ads incluida</li>
+        <li><i class="ti ti-check"></i> SEO básico + Google My Business</li>
+        <li><i class="ti ti-check"></i> Producción de 1 video mensual</li>
+        <li><i class="ti ti-check"></i> Reporte mensual con métricas</li>
+      </ul>
+      <button class="btn-plan">Elegir Profesional</button>
+    </div>
+    <div class="plan-card">
+      <div class="plan-name">Premium</div>
+      <div class="plan-price">$1.400.000 <span>/mes</span></div>
+      <div class="plan-desc">Solución integral para concesionarias medianas que buscan liderazgo digital en su zona.</div>
+      <ul class="plan-features">
+        <li><i class="ti ti-check"></i> Gestión todas las redes (diario)</li>
+        <li><i class="ti ti-check"></i> Google Ads + Meta Ads</li>
+        <li><i class="ti ti-check"></i> SEO avanzado + sitio web</li>
+        <li><i class="ti ti-check"></i> Producción 360° y video mensual</li>
+        <li><i class="ti ti-check"></i> Reporte semanal + reunión mensual</li>
+      </ul>
+      <button class="btn-plan outline">Elegir Premium</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="section-label" style="color:rgba(255,255,255,0.6)">Empieza hoy</div>
+  <h2>¿Tu concesionaria está perdiendo ventas por falta de presencia digital?</h2>
+  <p>Conversemos. Te hacemos un diagnóstico digital gratuito y sin compromiso en menos de 48 horas.</p>
+  <div class="cta-btns">
+    <button class="btn-white"><i class="ti ti-calendar"></i> Agendar diagnóstico gratis</button>
+    <button class="btn-outline-white"><i class="ti ti-brand-whatsapp"></i> Escribir por WhatsApp</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-links">
+    <a href="#">Inicio</a><a href="#">Servicios</a><a href="#">Planes</a><a href="#">Resultados</a><a href="#">Contacto</a><a href="#">Instagram</a>
+  </div>
+  <p>© 2026 AutoConfianza · Agencia de Marketing Digital para Concesionarias · Santiago, Chile</p>
+  <p>Especialistas en marketing digital para el mercado de automóviles usados en Chile</p>
+</footer>
+
+<button class="wapp-btn" title="WhatsApp" onclick="window.open('https://wa.me/56900000000','_blank')">
+  <i class="ti ti-brand-whatsapp"></i>
+</button>
+
+</body>
+</html>
